@@ -7,12 +7,13 @@
 #$ -o ./logs
 ###########################################################
 #### Edit the following variables ####
-MERGED_DIR=$(pwd)/merged_files/fastq
-GEN_DIR=/vcu_gpfs2/home/morecockcm/rnaseq_pipeline/genome_indexes/mouse/GRCm39_mm39/ref/
-GTF_FILE=/vcu_gpfs2/home/morecockcm/rnaseq_pipeline/genome_indexes/mouse/GRCm39_mm39/Mus_musculus.GRCm39.108.gtf
+MERGED_DIR=$(pwd)/raw_data/
+GEN_DIR=/vcu_gpfs2/home/mccbnfolab/Christiane/rnaseq_auto_pipeline/genome_indexes/human/hg38/ref/
+GTF_FILE=/vcu_gpfs2/home/mccbnfolab/Christiane/rnaseq_auto_pipeline/genome_indexes/human/hg38/Homo_sapiens.GRCh38.108.gtf
 # Species input is MOUSE or HUMAN
-SPECIES=MOUSE
-
+SPECIES=HUMAN
+FWDSUFFIX=_1.fq.gz
+RVSUFFIX=_2.fq.gz
 ##########################################################
 # Stable variables 
 SH_DIR=$(pwd)/align_sh
@@ -39,7 +40,7 @@ write_file(){
 	echo "source /vcu_gpfs2/home/mccbnfolab/enable_pyenv.sh"
 	
 	echo "#trimmomatic" >> $3
-	echo "java -Xmx20G -jar /vcu_gpfs2/home/morecockcm/bin/trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 16 -trimlog $TRIM_DIR/${2}_trimming.log ${1}/${2}_R1_001.fastq.gz ${1}/${2}_R2_001.fastq.gz -baseout $TRIM_DIR/${2}_trimmed.fastq.gz ILLUMINACLIP:/vcu_gpfs2/home/morecockcm/bin/trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10" >> $3
+	echo "java -Xmx20G -jar /vcu_gpfs2/home/morecockcm/bin/trimmomatic-0.39/trimmomatic-0.39.jar PE -threads 16 -trimlog $TRIM_DIR/${2}_trimming.log ${1}/${2}${FWDSUFFIX} ${1}/${2}${RVSUFFIX} -baseout $TRIM_DIR/${2}_trimmed.fastq.gz ILLUMINACLIP:/vcu_gpfs2/home/morecockcm/bin/trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10" >> $3
 
 
 	echo "#alignment" >> $3
@@ -53,7 +54,7 @@ write_file(){
 }
 
 for file in `ls ${MERGED_DIR}/*1_001.fastq.gz`; \
-    do dname=$(dirname ${file}); name=$(basename ${file} _R1_001.fastq.gz); \
+    do dname=$(dirname ${file}); name=$(basename ${file} ${FWDSUFFIX}); \
     # echo ${dname}/${name}
     write_file ${dname} ${name} ${SH_DIR}/${name}.sh
 done

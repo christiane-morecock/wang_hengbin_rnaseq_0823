@@ -53,7 +53,7 @@ write_file(){
 	echo "/vcu_gpfs2/home/mccbnfolab/TycK/tools_kmt/qualimap_v2.2.1/qualimap bamqc -bam ${ALIGN_DIR}/${2}Aligned.sortedByCoord.out.bam -outdir $QUALI_DIR -gd $SPECIES -nt 12 -c -outfile ${2}_bamqc.pdf -outformat PDF:HTML --java-mem-size=2G" >> $3
 }
 
-for file in `ls ${MERGED_DIR}/*1_001.fastq.gz`; \
+for file in `ls ${MERGED_DIR}/*${FWDSUFFIX}`; \
     do dname=$(dirname ${file}); name=$(basename ${file} ${FWDSUFFIX}); \
     # echo ${dname}/${name}
     write_file ${dname} ${name} ${SH_DIR}/${name}.sh

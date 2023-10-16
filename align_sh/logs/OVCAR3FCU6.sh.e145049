@@ -1,0 +1,61 @@
+TrimmomaticPE: Started with arguments:
+ -threads 16 -trimlog /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimming.log /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/raw_data/OVCAR3FCU6_1.fq.gz /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/raw_data/OVCAR3FCU6_2.fq.gz -baseout /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimmed.fastq.gz ILLUMINACLIP:/vcu_gpfs2/home/morecockcm/bin/trimmomatic-0.39/adapters/TruSeq3-PE.fa:2:30:10
+Using templated Output files: /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimmed_1P.fastq.gz /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimmed_1U.fastq.gz /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimmed_2P.fastq.gz /vcu_gpfs2/home/mccbnfolab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/trimmed/OVCAR3FCU6_trimmed_2U.fastq.gz
+Using PrefixPair: 'TACACTCTTTCCCTACACGACGCTCTTCCGATCT' and 'GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT'
+ILLUMINACLIP: Using 1 prefix pairs, 0 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Quality encoding detected as phred33
+Input Read Pairs: 32231306 Both Surviving: 31766084 (98.56%) Forward Only Surviving: 465175 (1.44%) Reverse Only Surviving: 0 (0.00%) Dropped: 47 (0.00%)
+TrimmomaticPE: Completed successfully
+
+        ==========     _____ _    _ ____  _____  ______          _____  
+        =====         / ____| |  | |  _ \|  __ \|  ____|   /\   |  __ \ 
+          =====      | (___ | |  | | |_) | |__) | |__     /  \  | |  | |
+            ====      \___ \| |  | |  _ <|  _  /|  __|   / /\ \ | |  | |
+              ====    ____) | |__| | |_) | | \ \| |____ / ____ \| |__| |
+        ==========   |_____/ \____/|____/|_|  \_\______/_/    \_\_____/
+	  v2.0.2
+
+//========================== featureCounts setting ===========================\\
+||                                                                            ||
+||             Input files : 1 BAM file                                       ||
+||                                                                            ||
+||                           OVCAR3FCU6Aligned.sortedByCoord.out.bam          ||
+||                                                                            ||
+||             Output file : OVCAR3FCU6.txt                                   ||
+||                 Summary : OVCAR3FCU6.txt.summary                           ||
+||              Paired-end : yes                                              ||
+||        Count read pairs : yes                                              ||
+||              Annotation : Homo_sapiens.GRCh38.108.gtf (GTF)                ||
+||      Dir for temp files : /vcu_gpfs2/home/mccbnfolab/Christiane/wang_h ... ||
+||                                                                            ||
+||                 Threads : 16                                               ||
+||                   Level : meta-feature level                               ||
+||      Multimapping reads : not counted                                      ||
+|| Multi-overlapping reads : not counted                                      ||
+||   Min overlapping bases : 1                                                ||
+||                                                                            ||
+\\============================================================================//
+
+//================================= Running ==================================\\
+||                                                                            ||
+|| Load annotation file Homo_sapiens.GRCh38.108.gtf ...                       ||
+||    Features : 1642501                                                      ||
+||    Meta-features : 62703                                                   ||
+||    Chromosomes/contigs : 47                                                ||
+||                                                                            ||
+|| Process BAM file OVCAR3FCU6Aligned.sortedByCoord.out.bam...                ||
+||    Paired-end reads are included.                                          ||
+||    Total alignments : 46258133                                             ||
+||    Successfully assigned alignments : 23256691 (50.3%)                     ||
+||    Running time : 0.83 minutes                                             ||
+||                                                                            ||
+|| Write the final count table.                                               ||
+|| Write the read assignment summary.                                         ||
+||                                                                            ||
+|| Summary of counting results can be found in file "/vcu_gpfs2/home/mccbnfo  ||
+|| lab/Christiane/wang_hengbin/wang_hengbin_rnaseq_0823/output/counts/OVCAR3  ||
+|| FCU6.txt.summary"                                                          ||
+||                                                                            ||
+\\============================================================================//
+
+OpenJDK 64-Bit Server VM warning: Ignoring option MaxPermSize; support was removed in 8.0
